@@ -88,9 +88,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mobile Menu
     const mobileBtn = document.querySelector('.mobile-menu-btn');
-    if(mobileBtn) {
+    const navLinks = document.querySelector('.nav-links');
+    if(mobileBtn && navLinks) {
         mobileBtn.addEventListener('click', () => {
-            alert('Mobile menu toggle would go here');
+            navLinks.classList.toggle('active');
+            const icon = navLinks.classList.contains('active') ? 'x' : 'menu';
+            mobileBtn.innerHTML = `<i data-lucide="${icon}"></i>`;
+            lucide.createIcons();
         });
     }
 
