@@ -32,7 +32,7 @@ const products = [
             { label: '2kg', price: 4200 },
             { label: '5kg', price: 10000 }
         ],
-        image: './public/bowl_sesame_seeds_1785239694675.png',
+        image: './public/sesame.png',
         description: 'Locally sourced brown sesame seeds, rich in healthy fats, protein, B vitamins, minerals, fiber, and antioxidants.'
     },
     {
@@ -46,6 +46,18 @@ const products = [
         ],
         image: './public/bowl_ridi_grains_1785239705262.png',
         description: 'High-quality Ridi grains, carefully processed to preserve its natural taste and nutritional benefits.'
+    },
+    {
+        id: 5,
+        name: 'Special Mix',
+        category: 'Grains',
+        sizes: [
+            { label: '1kg', price: 3000 },
+            { label: '2kg', price: 5800 },
+            { label: '5kg', price: 14000 }
+        ],
+        image: './public/spcil%20mix.png',
+        description: 'A premium blend of highly nutritious indigenous grains crafted for your everyday vitality.'
     }
 ];
 
