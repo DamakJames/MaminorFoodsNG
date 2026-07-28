@@ -33,7 +33,7 @@ const products = [
     }
 ];
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('maminor_cart')) || [];
 
 document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
@@ -75,6 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Your cart is empty!");
         }
     });
+
+    updateCartBadge();
 });
 
 let currentViewedProduct = null;
@@ -108,6 +110,7 @@ function addToCart() {
         cart.push({ product: currentViewedProduct, quantity: currentQuantity });
     }
     
+    localStorage.setItem('maminor_cart', JSON.stringify(cart));
     updateCartBadge();
     document.getElementById('product-modal').classList.remove('active');
     
@@ -206,6 +209,7 @@ async function placeOrder(event) {
         
         // 4. Clear cart & close
         cart = [];
+        localStorage.setItem('maminor_cart', JSON.stringify(cart));
         updateCartBadge();
         document.getElementById('checkout-modal').classList.remove('active');
         document.getElementById('checkout-form').reset();

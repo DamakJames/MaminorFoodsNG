@@ -32,9 +32,9 @@
                 <img src="./public/MAMINOR%20LOGO%20ICON.svg" alt="Maminor Foods Logo">
             </a>
             <nav class="nav-links">
-                <a href="index.html" class="active">Home</a>
+                <a href="index.html" >Home</a>
                 <a href="shop.html">Shop</a>
-                <a href="about.html">About Us</a>
+                <a href="about.html" class="active">About Us</a>
                 <a href="contact.html">Contact</a>
             </nav>
             <div class="nav-actions">
@@ -48,127 +48,29 @@
         </div>
     </header>
 
+    
     <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>
-                    <span class="text-green">Healthy</span> Foods & Drinks<br>
-                    <span class="text-brown">Made From Nature</span>
-                </h1>
-                <p>Nutritious, minimally processed foods and drinks crafted from indigenous grains for healthy everyday living.</p>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="document.querySelector('.products-section').scrollIntoView({behavior: 'smooth'})">Shop Now</button>
+        <div class="page-header">
+            <h1>About Maminor Foods</h1>
+            <p>Nourishing Lives Naturally.</p>
+        </div>
+        <section class="about-section">
+            <p>Maminor Foods Nigeria Limited is a food processing and packaging company committed to producing healthy, nutrient-rich foods and drinks from indigenous Nigerian grains.</p>
+            <p>We are passionate about promoting healthy living, supporting local farmers and providing affordable nutrition for everyone.</p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Our Mission</h3>
+                    <p>To provide accessible, highly nutritious, and minimally processed foods that promote everyday wellness, while empowering local agricultural communities.</p>
                 </div>
-            </div>
-            <div class="hero-image">
-                <div class="blob-bg"></div>
-                <img src="./public/hero_bottle_scene_1785239677269.png" alt="Kunun Acha Bottle">
-            </div>
-        </section>
-
-        <!-- Features Strip -->
-        <section class="features-strip">
-            <div class="feature-item">
-                <div class="feature-icon"><i data-lucide="leaf"></i></div>
-                <div class="feature-text">
-                    <h3>100% Natural</h3>
-                    <p>Made from carefully selected natural ingredients.</p>
+                <div class="about-card">
+                    <h3>Our Vision</h3>
+                    <p>To be the leading provider of indigenous natural foods in Africa, recognized for quality, health benefits, and sustainable practices.</p>
                 </div>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon"><i data-lucide="heart"></i></div>
-                <div class="feature-text">
-                    <h3>Nutritious</h3>
-                    <p>Rich in nutrients that support healthy living.</p>
-                </div>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon"><i data-lucide="sprout"></i></div>
-                <div class="feature-text">
-                    <h3>Minimally Processed</h3>
-                    <p>Preserving natural taste and nutritional value.</p>
-                </div>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon"><i data-lucide="map-pin"></i></div>
-                <div class="feature-text">
-                    <h3>Locally Sourced</h3>
-                    <p>Supporting Nigerian farmers and local agriculture.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Products Section -->
-        <section class="products-section">
-            <div class="section-header">
-                <h2>Our Products</h2>
-                <div class="divider"></div>
-            </div>
-            <!-- Populated by JS -->
-            <div class="product-grid" id="product-grid"></div>
-        </section>
-
-        <!-- Testimonial / Story Section (Rich Brand Colors) -->
-        <section class="story-section">
-            <div class="story-container">
-                <div class="story-content">
-                    <h2>Good Food, Better Life</h2>
-                    <p>Choose healthy. Live better. Choose Maminor Foods.</p>
-                    <button class="btn btn-orange">Our Story</button>
-                </div>
-                <div class="story-graphic">
-                    <img src="./public/bowl_acha_grains_1785239686726.png" alt="Grains Bowl">
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials -->
-        <section class="testimonials-section">
-            <div class="section-header">
-                <h2>What Our Customers Say</h2>
-                <div class="divider"></div>
-            </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <i data-lucide="quote" class="quote-icon"></i>
-                    <p>"Healthy, refreshing, and very filling. My family loves Maminor Kunun!"</p>
-                    <div class="stars">
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                    </div>
-                    <h4>Grace Johnson</h4>
-                </div>
-                <div class="testimonial-card">
-                    <i data-lucide="quote" class="quote-icon"></i>
-                    <p>"Finally found healthy grains that are affordable and easy to prepare."</p>
-                    <div class="stars">
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                    </div>
-                    <h4>Daniel Peter</h4>
-                </div>
-            </div>
-        </section>
-
-        <!-- Newsletter Section -->
-        <section class="newsletter-section">
-            <div class="newsletter-content">
-                <h2>Stay Connected With Us</h2>
-                <p>Get health tips, new products and exclusive offers.</p>
-                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
-                </form>
             </div>
         </section>
     </main>
+
 
     <!-- Footer -->
     <footer class="main-footer">

@@ -32,10 +32,10 @@
                 <img src="./public/MAMINOR%20LOGO%20ICON.svg" alt="Maminor Foods Logo">
             </a>
             <nav class="nav-links">
-                <a href="index.html" class="active">Home</a>
+                <a href="index.html" >Home</a>
                 <a href="shop.html">Shop</a>
                 <a href="about.html">About Us</a>
-                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="active">Contact</a>
             </nav>
             <div class="nav-actions">
                 
@@ -48,127 +48,70 @@
         </div>
     </header>
 
+    
     <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>
-                    <span class="text-green">Healthy</span> Foods & Drinks<br>
-                    <span class="text-brown">Made From Nature</span>
-                </h1>
-                <p>Nutritious, minimally processed foods and drinks crafted from indigenous grains for healthy everyday living.</p>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="document.querySelector('.products-section').scrollIntoView({behavior: 'smooth'})">Shop Now</button>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="blob-bg"></div>
-                <img src="./public/hero_bottle_scene_1785239677269.png" alt="Kunun Acha Bottle">
-            </div>
-        </section>
-
-        <!-- Features Strip -->
-        <section class="features-strip">
-            <div class="feature-item">
-                <div class="feature-icon"><i data-lucide="leaf"></i></div>
-                <div class="feature-text">
-                    <h3>100% Natural</h3>
-                    <p>Made from carefully selected natural ingredients.</p>
-                </div>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon"><i data-lucide="heart"></i></div>
-                <div class="feature-text">
-                    <h3>Nutritious</h3>
-                    <p>Rich in nutrients that support healthy living.</p>
-                </div>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon"><i data-lucide="sprout"></i></div>
-                <div class="feature-text">
-                    <h3>Minimally Processed</h3>
-                    <p>Preserving natural taste and nutritional value.</p>
-                </div>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon"><i data-lucide="map-pin"></i></div>
-                <div class="feature-text">
-                    <h3>Locally Sourced</h3>
-                    <p>Supporting Nigerian farmers and local agriculture.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Products Section -->
-        <section class="products-section">
-            <div class="section-header">
-                <h2>Our Products</h2>
-                <div class="divider"></div>
-            </div>
-            <!-- Populated by JS -->
-            <div class="product-grid" id="product-grid"></div>
-        </section>
-
-        <!-- Testimonial / Story Section (Rich Brand Colors) -->
-        <section class="story-section">
-            <div class="story-container">
-                <div class="story-content">
-                    <h2>Good Food, Better Life</h2>
-                    <p>Choose healthy. Live better. Choose Maminor Foods.</p>
-                    <button class="btn btn-orange">Our Story</button>
-                </div>
-                <div class="story-graphic">
-                    <img src="./public/bowl_acha_grains_1785239686726.png" alt="Grains Bowl">
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials -->
-        <section class="testimonials-section">
-            <div class="section-header">
-                <h2>What Our Customers Say</h2>
-                <div class="divider"></div>
-            </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <i data-lucide="quote" class="quote-icon"></i>
-                    <p>"Healthy, refreshing, and very filling. My family loves Maminor Kunun!"</p>
-                    <div class="stars">
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
+        <div class="page-header">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you. Reach out to us anytime.</p>
+        </div>
+        <section class="contact-section">
+            <div class="contact-form-card">
+                <h2>Send us a Message</h2>
+                <form onsubmit="event.preventDefault(); alert('Message Sent!');">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" required placeholder="Your Name">
                     </div>
-                    <h4>Grace Johnson</h4>
-                </div>
-                <div class="testimonial-card">
-                    <i data-lucide="quote" class="quote-icon"></i>
-                    <p>"Finally found healthy grains that are affordable and easy to prepare."</p>
-                    <div class="stars">
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" required placeholder="Your Email">
                     </div>
-                    <h4>Daniel Peter</h4>
-                </div>
-            </div>
-        </section>
-
-        <!-- Newsletter Section -->
-        <section class="newsletter-section">
-            <div class="newsletter-content">
-                <h2>Stay Connected With Us</h2>
-                <p>Get health tips, new products and exclusive offers.</p>
-                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea required placeholder="How can we help?" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary block-btn">Send Message</button>
                 </form>
+            </div>
+            <div class="contact-info-card">
+                <div class="contact-detail-box">
+                    <i data-lucide="map-pin"></i>
+                    <div>
+                        <h4>Address</h4>
+                        <p>12, Harmony Estate, Abijo, Lekki, Lagos State, Nigeria.</p>
+                    </div>
+                </div>
+                <div class="contact-detail-box">
+                    <i data-lucide="phone"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+234 810 726 8823</p>
+                    </div>
+                </div>
+                <div class="contact-detail-box">
+                    <i data-lucide="mail"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>maminorng@gmai.com</p>
+                    </div>
+                </div>
+                
+                <div class="social-flex">
+                    <a href="#" class="social-icon"><i data-lucide="facebook"></i></a>
+                    <a href="#" class="social-icon"><i data-lucide="instagram"></i></a>
+                    <a href="#" class="social-icon"><i data-lucide="twitter"></i></a>
+                    <a href="#" class="social-icon"><i data-lucide="linkedin"></i></a>
+                </div>
+
+                <div class="distributor-box">
+                    <h3><i data-lucide="briefcase"></i> Partner With Us</h3>
+                    <p>Become a distributor or affiliate and enjoy a percentage on bulk orders! Join our network of healthy living advocates.</p>
+                    <button class="btn btn-white btn-sm" onclick="window.open('https://wa.me/2348107268823?text=I am interested in becoming a distributor', '_blank')">Join Now</button>
+                </div>
             </div>
         </section>
     </main>
+
 
     <!-- Footer -->
     <footer class="main-footer">
