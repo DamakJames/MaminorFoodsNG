@@ -3,23 +3,35 @@ const products = [
         id: 1,
         name: 'Kunun Acha',
         category: 'Drinks',
-        price: 1500,
-        image: './public/hero_bottle_scene_1785239677269.png',
+        sizes: [
+            { label: '500ml', price: 1500 },
+            { label: '1 Litre', price: 2800 },
+            { label: '5 Litres', price: 12000 }
+        ],
+        image: './public/kunu.png',
         description: 'Refreshing and nourishing drink made from acha, dates, ginger and other natural ingredients. 100% natural, rich in nutrients, no artificial additives.'
     },
     {
         id: 2,
         name: 'Acha (Fonio)',
         category: 'Grains',
-        price: 2000,
-        image: './public/bowl_acha_grains_1785239686726.png',
+        sizes: [
+            { label: '1kg', price: 2000 },
+            { label: '2kg', price: 3800 },
+            { label: '5kg', price: 9000 }
+        ],
+        image: './public/acha-fonio.png',
         description: 'Premium quality Acha (Fonio) grains. Extremely healthy, gluten-free, and easy to digest. Perfect for your healthy meals.'
     },
     {
         id: 3,
         name: 'Sesame Seed',
         category: 'Seeds',
-        price: 2200,
+        sizes: [
+            { label: '1kg', price: 2200 },
+            { label: '2kg', price: 4200 },
+            { label: '5kg', price: 10000 }
+        ],
         image: './public/bowl_sesame_seeds_1785239694675.png',
         description: 'Locally sourced brown sesame seeds, rich in healthy fats, protein, B vitamins, minerals, fiber, and antioxidants.'
     },
@@ -27,13 +39,20 @@ const products = [
         id: 4,
         name: 'Ridi',
         category: 'Grains',
-        price: 1800,
+        sizes: [
+            { label: '1kg', price: 1800 },
+            { label: '2kg', price: 3500 },
+            { label: '5kg', price: 8500 }
+        ],
         image: './public/bowl_ridi_grains_1785239705262.png',
         description: 'High-quality Ridi grains, carefully processed to preserve its natural taste and nutritional benefits.'
     }
 ];
 
 let cart = JSON.parse(localStorage.getItem('maminor_cart')) || [];
+let currentViewedProduct = null;
+let currentQuantity = 1;
+let currentSelectedSizeIndex = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
@@ -53,152 +72,198 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="product-info">
                     <h3>${product.name}</h3>
                     <span class="product-category">${product.category}</span>
-                    <p class="product-price">₦${product.price.toLocaleString()}</p>
+                    <p class="product-price">From ₦${product.sizes[0].price.toLocaleString()}</p>
                     <button class="btn btn-primary btn-sm block-btn" onclick="openProductModal(${product.id})">View Details</button>
                 </div>
             </div>
         `).join('');
     }
 
-    // Modal Close handlers
+    // Modal Closes
     document.querySelectorAll('.close-modal').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.target.closest('.modal-overlay').classList.remove('active');
         });
     });
 
+    // Mobile Menu
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    if(mobileBtn) {
+        mobileBtn.addEventListener('click', () => {
+            alert('Mobile menu toggle would go here');
+        });
+    }
+
     // Cart Button
-    document.querySelector('.cart-btn').addEventListener('click', () => {
-        if(cart.length > 0) {
-            openCheckoutModal();
-        } else {
-            alert("Your cart is empty!");
-        }
-    });
+    const cartBtn = document.querySelector('.cart-btn');
+    if(cartBtn) {
+        cartBtn.addEventListener('click', () => {
+            if(cart.length > 0) {
+                openCheckoutModal();
+            } else {
+                alert("Your cart is empty!");
+            }
+        });
+    }
 
     updateCartBadge();
 });
 
-let currentViewedProduct = null;
-let currentQuantity = 1;
-
-function openProductModal(id) {
+window.openProductModal = (id) => {
     currentViewedProduct = products.find(p => p.id === id);
     currentQuantity = 1;
+    currentSelectedSizeIndex = 0;
     
     document.getElementById('modal-img').src = currentViewedProduct.image;
     document.getElementById('modal-title').textContent = currentViewedProduct.name;
-    document.getElementById('modal-price').textContent = `₦${currentViewedProduct.price.toLocaleString()}`;
+    document.getElementById('modal-price').textContent = `₦${currentViewedProduct.sizes[0].price.toLocaleString()}`;
     document.getElementById('modal-desc').textContent = currentViewedProduct.description;
     document.getElementById('modal-qty').textContent = currentQuantity;
+    
+    // Render Sizes
+    const sizesContainer = document.getElementById('modal-sizes');
+    if(sizesContainer) {
+        sizesContainer.innerHTML = currentViewedProduct.sizes.map((sz, index) => 
+            `<button class="size-btn ${index === 0 ? 'active' : ''}" onclick="selectSize(${index})">${sz.label}</button>`
+        ).join('');
+    }
     
     document.getElementById('product-modal').classList.add('active');
 }
 
-function updateQuantity(change) {
-    if (currentQuantity + change > 0) {
+window.selectSize = (index) => {
+    currentSelectedSizeIndex = index;
+    const selectedSize = currentViewedProduct.sizes[index];
+    document.getElementById('modal-price').textContent = `₦${selectedSize.price.toLocaleString()}`;
+    
+    // Update active class
+    document.querySelectorAll('.size-btn').forEach((btn, i) => {
+        if(i === index) btn.classList.add('active');
+        else btn.classList.remove('active');
+    });
+}
+
+window.updateQuantity = (change) => {
+    if(currentQuantity + change > 0) {
         currentQuantity += change;
         document.getElementById('modal-qty').textContent = currentQuantity;
     }
 }
 
-function addToCart() {
-    const existing = cart.find(item => item.product.id === currentViewedProduct.id);
+window.addToCart = () => {
+    const selectedSize = currentViewedProduct.sizes[currentSelectedSizeIndex];
+    // Check if same product AND same size exists
+    const existing = cart.find(item => item.product.id === currentViewedProduct.id && item.size.label === selectedSize.label);
+    
     if(existing) {
         existing.quantity += currentQuantity;
     } else {
-        cart.push({ product: currentViewedProduct, quantity: currentQuantity });
+        cart.push({ product: currentViewedProduct, size: selectedSize, quantity: currentQuantity });
     }
     
     localStorage.setItem('maminor_cart', JSON.stringify(cart));
     updateCartBadge();
     document.getElementById('product-modal').classList.remove('active');
+}
+
+window.removeFromCart = (index) => {
+    cart.splice(index, 1);
+    localStorage.setItem('maminor_cart', JSON.stringify(cart));
+    updateCartBadge();
     
-    // Optional: Show a quick toast or alert
-    alert(`${currentQuantity}x ${currentViewedProduct.name} added to cart!`);
+    if(cart.length === 0) {
+        document.getElementById('checkout-modal').classList.remove('active');
+    } else {
+        updateOrderSummary();
+    }
 }
 
 function updateCartBadge() {
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    document.getElementById('cart-badge').textContent = totalItems;
+    const badge = document.getElementById('cart-badge');
+    if(badge) {
+        const total = cart.reduce((sum, item) => sum + item.quantity, 0);
+        badge.textContent = total;
+    }
 }
 
-function openCheckoutModal() {
-    const orderItems = document.getElementById('order-items');
-    let subtotal = 0;
-    
-    orderItems.innerHTML = cart.map(item => {
-        const itemTotal = item.product.price * item.quantity;
-        subtotal += itemTotal;
-        return `
-            <div class="checkout-item">
-                <div class="checkout-item-info">
-                    <h4>${item.product.name}</h4>
-                    <p>₦${item.product.price.toLocaleString()} x ${item.quantity}</p>
-                </div>
-                <span>₦${itemTotal.toLocaleString()}</span>
-            </div>
-        `;
-    }).join('');
-    
-    const deliveryFee = 800; // Fixed delivery for demo
-    const total = subtotal + deliveryFee;
-    
-    document.getElementById('checkout-subtotal').textContent = `₦${subtotal.toLocaleString()}`;
-    document.getElementById('checkout-total').textContent = `₦${total.toLocaleString()}`;
-    
+window.openCheckoutModal = () => {
+    updateOrderSummary();
     document.getElementById('checkout-modal').classList.add('active');
 }
 
-async function placeOrder(event) {
+function updateOrderSummary() {
+    const orderItemsContainer = document.getElementById('order-items');
+    let subtotal = 0;
+    const deliveryFee = 800; // Flat rate for demo
+    
+    if(orderItemsContainer) {
+        orderItemsContainer.innerHTML = cart.map((item, index) => {
+            const itemTotal = item.size.price * item.quantity;
+            subtotal += itemTotal;
+            return `
+                <div class="checkout-item" style="position:relative;">
+                    <div>
+                        <h4>${item.product.name}</h4>
+                        <p>${item.size.label} x ${item.quantity}</p>
+                    </div>
+                    <span>₦${itemTotal.toLocaleString()}</span>
+                    <button class="remove-item" onclick="removeFromCart(${index})" style="background:none; border:none; color:var(--color-orange); cursor:pointer; font-size:0.8rem; margin-left:10px;"><i data-lucide="trash-2" size="14"></i></button>
+                </div>
+            `;
+        }).join('');
+        
+        lucide.createIcons(); // refresh trash icons
+    }
+    
+    document.getElementById('checkout-subtotal').textContent = `₦${subtotal.toLocaleString()}`;
+    document.getElementById('checkout-total').textContent = `₦${(subtotal + deliveryFee).toLocaleString()}`;
+}
+
+window.placeOrder = async (event) => {
     event.preventDefault();
     
-    const name = document.getElementById('order-name').value;
-    const phone = document.getElementById('order-phone').value;
-    const address = document.getElementById('order-address').value;
-    const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
-    
-    const orderData = {
-        customer: { name, phone, address },
-        items: cart.map(item => ({
-            name: item.product.name,
-            quantity: item.quantity,
-            price: item.product.price,
-            total: item.product.price * item.quantity
-        })),
-        paymentMethod,
-        totalAmount: document.getElementById('checkout-total').textContent,
-        date: new Date().toISOString()
-    };
-    
     const btn = document.getElementById('place-order-btn');
-    btn.textContent = "Processing...";
+    const originalText = btn.innerHTML;
+    btn.innerHTML = 'Processing...';
     btn.disabled = true;
 
+    // Calculate Totals
+    let subtotal = 0;
+    cart.forEach(item => {
+        subtotal += item.size.price * item.quantity;
+    });
+    const deliveryFee = 800;
+    const totalAmount = subtotal + deliveryFee;
+
+    const orderData = {
+        name: document.getElementById('order-name').value,
+        phone: document.getElementById('order-phone').value,
+        address: document.getElementById('order-address').value,
+        payment: document.querySelector('input[name="payment"]:checked').value,
+        items: cart,
+        totalAmount: `₦${totalAmount.toLocaleString()}`
+    };
+
     try {
-        // 1. Webhook / API Call (Formspree or custom Webhook)
-        // To receive emails to maminorng@gmai.com, you can create a free form on formspree.io and paste the URL here:
+        // 1. Webhook
         const webhookUrl = "https://formspree.io/f/placeholder"; 
         
-        // We catch errors so the Whatsapp flow still works even if the placeholder webhook fails
         await fetch(webhookUrl, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify(orderData)
-        }).catch(err => console.log('Webhook placeholder skipped.'));
+        }).catch(err => console.log("Webhook skipped or failed."));
 
         // 2. Format WhatsApp Message
-        let waMessage = `*New Order - Maminor Foods*\n\n`;
-        waMessage += `*Customer:* ${name}\n`;
-        waMessage += `*Phone:* ${phone}\n`;
-        waMessage += `*Address:* ${address}\n`;
-        waMessage += `*Payment:* ${paymentMethod}\n\n`;
-        waMessage += `*Items:*\n`;
+        let waMessage = `*New Order - Maminor Foods*\n\n*Name:* ${orderData.name}\n*Phone:* ${orderData.phone}\n*Address:* ${orderData.address}\n*Payment:* ${orderData.payment}\n\n*Items:*\n`;
         
         cart.forEach(item => {
-            waMessage += `- ${item.quantity}x ${item.product.name} (₦${(item.product.price * item.quantity).toLocaleString()})\n`;
+            waMessage += `- ${item.product.name} (${item.size.label}) x ${item.quantity} = ₦${(item.size.price * item.quantity).toLocaleString()}\n`;
         });
         
+        waMessage += `\n*Delivery:* ₦${deliveryFee.toLocaleString()}`;
         waMessage += `\n*Total:* ${orderData.totalAmount}`;
         
         const encodedMessage = encodeURIComponent(waMessage);
@@ -214,13 +279,11 @@ async function placeOrder(event) {
         document.getElementById('checkout-modal').classList.remove('active');
         document.getElementById('checkout-form').reset();
         
-        alert("Order submitted successfully! You are being redirected to WhatsApp to confirm.");
-        
     } catch (error) {
-        console.error("Order error", error);
-        alert("There was an issue processing your order. Please try again.");
+        console.error("Order processing error:", error);
+        alert("Something went wrong processing your order. Please try again.");
     } finally {
-        btn.textContent = "Place Order";
+        btn.innerHTML = originalText;
         btn.disabled = false;
     }
 }
