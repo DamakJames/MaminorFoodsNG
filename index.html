@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maminor Foods NG | Healthy Foods Made from Nature</title>
+    <!-- Favicon and SEO Icons -->
+    <link rel="icon" type="image/svg+xml" href="./public/MAMINOR%20LOGO%20ICON.svg">
+    <meta name="description" content="Nutritious foods and drinks crafted from indigenous grains for healthy everyday living.">
+    <link rel="stylesheet" href="index.css">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <span><i data-lucide="truck" size="16"></i> Fast & Reliable Delivery Nationwide</span>
+            <span><i data-lucide="shield-check" size="16"></i> 100% Secure Payments</span>
+        </div>
+    </div>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="./public/MAMINOR%20LOGO%20ICON.svg" alt="Maminor Foods Logo">
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#">Shop</a>
+                <a href="#">Categories</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="icon-btn" aria-label="Search"><i data-lucide="search"></i></button>
+                <button class="icon-btn cart-btn" aria-label="Cart">
+                    <i data-lucide="shopping-cart"></i>
+                    <span class="cart-badge" id="cart-badge">0</span>
+                </button>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Menu"><i data-lucide="menu"></i></button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>
+                    <span class="text-green">Healthy</span> Foods & Drinks<br>
+                    <span class="text-brown">Made From Nature</span>
+                </h1>
+                <p>Nutritious, minimally processed foods and drinks crafted from indigenous grains for healthy everyday living.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="document.querySelector('.products-section').scrollIntoView({behavior: 'smooth'})">Shop Now</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="blob-bg"></div>
+                <img src="./public/hero_bottle_scene_1785239677269.png" alt="Kunun Acha Bottle">
+            </div>
+        </section>
+
+        <!-- Features Strip -->
+        <section class="features-strip">
+            <div class="feature-item">
+                <div class="feature-icon"><i data-lucide="leaf"></i></div>
+                <div class="feature-text">
+                    <h3>100% Natural</h3>
+                    <p>Made from carefully selected natural ingredients.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i data-lucide="heart"></i></div>
+                <div class="feature-text">
+                    <h3>Nutritious</h3>
+                    <p>Rich in nutrients that support healthy living.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i data-lucide="sprout"></i></div>
+                <div class="feature-text">
+                    <h3>Minimally Processed</h3>
+                    <p>Preserving natural taste and nutritional value.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i data-lucide="map-pin"></i></div>
+                <div class="feature-text">
+                    <h3>Locally Sourced</h3>
+                    <p>Supporting Nigerian farmers and local agriculture.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-section">
+            <div class="section-header">
+                <h2>Our Products</h2>
+                <div class="divider"></div>
+            </div>
+            <!-- Populated by JS -->
+            <div class="product-grid" id="product-grid"></div>
+        </section>
+
+        <!-- Testimonial / Story Section (Rich Brand Colors) -->
+        <section class="story-section">
+            <div class="story-container">
+                <div class="story-content">
+                    <h2>Good Food, Better Life</h2>
+                    <p>Choose healthy. Live better. Choose Maminor Foods.</p>
+                    <button class="btn btn-orange">Our Story</button>
+                </div>
+                <div class="story-graphic">
+                    <img src="./public/bowl_acha_grains_1785239686726.png" alt="Grains Bowl">
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials-section">
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <i data-lucide="quote" class="quote-icon"></i>
+                    <p>"Healthy, refreshing, and very filling. My family loves Maminor Kunun!"</p>
+                    <div class="stars">
+                        <i data-lucide="star" fill="currentColor"></i>
+                        <i data-lucide="star" fill="currentColor"></i>
+                        <i data-lucide="star" fill="currentColor"></i>
+                        <i data-lucide="star" fill="currentColor"></i>
+                        <i data-lucide="star" fill="currentColor"></i>
+                    </div>
+                    <h4>Grace Johnson</h4>
+                </div>
+                <div class="testimonial-card">
+                    <i data-lucide="quote" class="quote-icon"></i>
+                    <p>"Finally found healthy grains that are affordable and easy to prepare."</p>
+                    <div class="stars">
+                        <i data-lucide="star" fill="currentColor"></i>
+                        <i data-lucide="star" fill="currentColor"></i>
+                        <i data-lucide="star" fill="currentColor"></i>
+                        <i data-lucide="star" fill="currentColor"></i>
+                        <i data-lucide="star" fill="currentColor"></i>
+                    </div>
+                    <h4>Daniel Peter</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="newsletter-content">
+                <h2>Stay Connected With Us</h2>
+                <p>Get health tips, new products and exclusive offers.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="./public/MAMINOR%20LOGO%20ICON.svg" alt="Maminor Foods Logo" class="footer-logo">
+                <p class="brand-tagline">Nourishing Lives Naturally.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i data-lucide="phone"></i>
+                        <span>+234 810 726 8823</span>
+                    </div>
+                    <div class="contact-item">
+                        <i data-lucide="mail"></i>
+                        <span>maminorng@gmai.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i data-lucide="map-pin"></i>
+                        <span>12, Harmony Estate, Abijo,<br>Lekki, Lagos State, Nigeria.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Orders & Returns</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="#">Help Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="social-links">
+                <span>Follow Us:</span>
+                <a href="#" class="social-icon"><i data-lucide="facebook"></i></a>
+                <a href="#" class="social-icon"><i data-lucide="instagram"></i></a>
+                <a href="#" class="social-icon"><i data-lucide="twitter"></i></a>
+            </div>
+            <p class="copyright">&copy; 2024 Maminor Foods Nigeria Limited. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    
+    <!-- Product Details Modal -->
+    <div class="modal-overlay" id="product-modal">
+        <div class="modal-content product-modal-content">
+            <button class="close-modal"><i data-lucide="x"></i></button>
+            <div class="product-modal-grid">
+                <div class="modal-image-container">
+                    <img id="modal-img" src="" alt="Product Image">
+                </div>
+                <div class="modal-details">
+                    <h2 id="modal-title">Product Name</h2>
+                    <p class="modal-price" id="modal-price">₦0</p>
+                    <p class="modal-description" id="modal-desc">Description here.</p>
+                    
+                    <div class="quantity-selector">
+                        <span>Quantity:</span>
+                        <div class="qty-controls">
+                            <button onclick="updateQuantity(-1)"><i data-lucide="minus" size="16"></i></button>
+                            <span id="modal-qty">1</span>
+                            <button onclick="updateQuantity(1)"><i data-lucide="plus" size="16"></i></button>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary block-btn" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkout-modal">
+        <div class="modal-content checkout-modal-content">
+            <button class="close-modal"><i data-lucide="x"></i></button>
+            <h2>Checkout</h2>
+            <div class="checkout-grid">
+                <!-- Order Summary -->
+                <div class="checkout-summary">
+                    <h3>Order Summary</h3>
+                    <div class="order-items" id="order-items">
+                        <!-- Populated by JS -->
+                    </div>
+                    <div class="order-totals">
+                        <div class="total-row">
+                            <span>Subtotal</span>
+                            <span id="checkout-subtotal">₦0</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Delivery Fee</span>
+                            <span>₦800</span>
+                        </div>
+                        <div class="total-row grand-total">
+                            <span>Total</span>
+                            <span id="checkout-total">₦0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Checkout Form -->
+                <div class="checkout-form-container">
+                    <h3>Delivery Details (Guest Checkout)</h3>
+                    <form id="checkout-form" onsubmit="placeOrder(event)">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="order-name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" id="order-phone" required placeholder="09012345678">
+                        </div>
+                        <div class="form-group">
+                            <label>Delivery Address</label>
+                            <textarea id="order-address" required placeholder="123 Harmony Estate, Lagos..." rows="3"></textarea>
+                        </div>
+                        
+                        <h3>Payment Method</h3>
+                        <div class="payment-methods">
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="Pay on Delivery" checked>
+                                <span><i data-lucide="truck"></i> Pay on Delivery</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="Bank Transfer">
+                                <span><i data-lucide="building"></i> Bank Transfer</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-green block-btn mt-4" id="place-order-btn">Place Order (via WhatsApp)</button>
+                        <p class="secure-note"><i data-lucide="lock" size="14"></i> Your data is processed securely.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
