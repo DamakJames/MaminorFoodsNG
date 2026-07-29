@@ -1,63 +1,91 @@
 const products = [
     {
         id: 1,
-        name: 'Kunun Acha',
-        category: 'Drinks',
+        name: 'Acha Whole Grain',
+        category: 'Grains',
         sizes: [
-            { label: '500ml', price: 1500 },
-            { label: '1 Litre', price: 2800 },
-            { label: '5 Litres', price: 12000 }
+            { label: 'Retail Pack', price: 3500 },
+            { label: 'Wholesale (Bulk)', price: 3150 }
         ],
-        image: './public/kunu.png',
-        description: 'Refreshing and nourishing drink made from acha, dates, ginger and other natural ingredients. 100% natural, rich in nutrients, no artificial additives.'
+        image: './public/acha-fonio.png',
+        description: 'Premium quality Acha (Fonio) whole grains. Extremely healthy, gluten-free, and easy to digest.'
     },
     {
         id: 2,
-        name: 'Acha (Fonio)',
+        name: 'Acha Quick Cook Mix',
         category: 'Grains',
         sizes: [
-            { label: '1kg', price: 2000 },
-            { label: '2kg', price: 3800 },
-            { label: '5kg', price: 9000 }
+            { label: 'Retail Pack', price: 3500 },
+            { label: 'Wholesale (Bulk)', price: 3150 }
         ],
-        image: './public/acha-fonio.png',
-        description: 'Premium quality Acha (Fonio) grains. Extremely healthy, gluten-free, and easy to digest. Perfect for your healthy meals.'
+        image: './public/quick%20cook%20mix%20acha.png',
+        description: 'Maminor Acha Quick Cook Mix. A natural gluten-free meal, rich source of Calcium, Iron, and Protein.'
     },
     {
         id: 3,
-        name: 'Sesame Seed',
-        category: 'Seeds',
+        name: 'Acha Flour',
+        category: 'Flour',
         sizes: [
-            { label: '1kg', price: 2200 },
-            { label: '2kg', price: 4200 },
-            { label: '5kg', price: 10000 }
+            { label: 'Retail Pack', price: 3750 },
+            { label: 'Wholesale (Bulk)', price: 3375 }
         ],
-        image: './public/sesame.png',
-        description: 'Locally sourced brown sesame seeds, rich in healthy fats, protein, B vitamins, minerals, fiber, and antioxidants.'
+        image: './public/acha-fonio.png',
+        description: 'Finely milled Acha flour, perfect for healthy baking and smooth porridges.'
     },
     {
         id: 4,
-        name: 'Ridi',
-        category: 'Grains',
-        sizes: [
-            { label: '1kg', price: 1800 },
-            { label: '2kg', price: 3500 },
-            { label: '5kg', price: 8500 }
-        ],
-        image: './public/bowl_ridi_grains_1785239705262.png',
-        description: 'High-quality Ridi grains, carefully processed to preserve its natural taste and nutritional benefits.'
-    },
-    {
-        id: 5,
         name: 'Special Mix',
         category: 'Grains',
         sizes: [
-            { label: '1kg', price: 3000 },
-            { label: '2kg', price: 5800 },
-            { label: '5kg', price: 14000 }
+            { label: 'Retail Pack', price: 4000 },
+            { label: 'Wholesale (Bulk)', price: 3600 }
         ],
-        image: './public/spcil%20mix.png',
+        image: './public/specil%20mix.jpeg',
         description: 'A premium blend of highly nutritious indigenous grains crafted for your everyday vitality.'
+    },
+    {
+        id: 5,
+        name: 'Sesame Seed',
+        category: 'Seeds',
+        sizes: [
+            { label: 'Retail Pack', price: 2750 },
+            { label: 'Wholesale (Bulk)', price: 2475 }
+        ],
+        image: './public/sesame.png',
+        description: 'Locally sourced brown sesame seeds, rich in healthy fats, protein, and antioxidants.'
+    },
+    {
+        id: 6,
+        name: 'Tamba',
+        category: 'Grains',
+        sizes: [
+            { label: 'Retail Pack', price: 2500 },
+            { label: 'Wholesale (Bulk)', price: 2250 }
+        ],
+        image: './public/bowl_ridi_grains_1785239705262.png',
+        description: 'Nutritious Tamba grains carefully processed to preserve natural taste and health benefits.'
+    },
+    {
+        id: 7,
+        name: 'Kunu with Dates',
+        category: 'Drinks',
+        sizes: [
+            { label: 'Retail Bottle', price: 1500 },
+            { label: 'Wholesale (Bulk)', price: 1300 }
+        ],
+        image: './public/kunu.png',
+        description: 'Refreshing and nourishing Kunu drink sweetened naturally with dates.'
+    },
+    {
+        id: 8,
+        name: 'Kunu with Sugar',
+        category: 'Drinks',
+        sizes: [
+            { label: 'Retail Bottle', price: 1200 },
+            { label: 'Wholesale (Bulk)', price: 1000 }
+        ],
+        image: './public/kunu.png',
+        description: 'Refreshing and nourishing Kunu drink perfectly sweetened with sugar.'
     }
 ];
 
