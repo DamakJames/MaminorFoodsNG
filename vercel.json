@@ -1,13 +1,3 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/index.html" },
-    { "source": "/shop", "destination": "/shop.html" },
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/faq", "destination": "/faq.html" },
-    { "source": "/privacy", "destination": "/privacy.html" },
-    { "source": "/returns", "destination": "/returns.html" },
-    { "source": "/shipping", "destination": "/shipping.html" },
-    { "source": "/terms", "destination": "/terms.html" }
-  ]
+  "cleanUrls": true
 }
