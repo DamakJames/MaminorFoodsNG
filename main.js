@@ -62,7 +62,7 @@ const products = [
             { label: 'Retail Pack', price: 2500 },
             { label: 'Wholesale (Bulk)', price: 2250 }
         ],
-        image: './public/bowl_ridi_grains_1785239705262.png',
+        image: './public/TAMBA.png',
         description: 'Nutritious Tamba grains carefully processed to preserve natural taste and health benefits.'
     },
     {
