@@ -7,7 +7,7 @@ const products = [
             { label: 'Retail Pack', price: 3500 },
             { label: 'Wholesale (Bulk)', price: 3150 }
         ],
-        image: './public/acha-fonio.png',
+        image: './assets/acha-fonio.png',
         description: 'Premium quality Acha (Fonio) whole grains. Extremely healthy, gluten-free, and easy to digest.'
     },
     {
@@ -18,7 +18,7 @@ const products = [
             { label: 'Retail Pack', price: 3500 },
             { label: 'Wholesale (Bulk)', price: 3150 }
         ],
-        image: './public/quick_cook_mix_acha.png',
+        image: './assets/quick_cook_mix_acha.png',
         description: 'Maminor Acha Quick Cook Mix. A natural gluten-free meal, rich source of Calcium, Iron, and Protein.'
     },
     {
@@ -29,7 +29,7 @@ const products = [
             { label: 'Retail Pack', price: 3750 },
             { label: 'Wholesale (Bulk)', price: 3375 }
         ],
-        image: './public/acha-fonio.png',
+        image: './assets/acha-fonio.png',
         description: 'Finely milled Acha flour, perfect for healthy baking and smooth porridges.'
     },
     {
@@ -40,7 +40,7 @@ const products = [
             { label: 'Retail Pack', price: 4000 },
             { label: 'Wholesale (Bulk)', price: 3600 }
         ],
-        image: './public/specil_mix.jpeg',
+        image: './assets/specil_mix.jpeg',
         description: 'A premium blend of highly nutritious indigenous grains crafted for your everyday vitality.'
     },
     {
@@ -51,7 +51,7 @@ const products = [
             { label: 'Retail Pack', price: 2750 },
             { label: 'Wholesale (Bulk)', price: 2475 }
         ],
-        image: './public/sesame.png',
+        image: './assets/sesame.png',
         description: 'Locally sourced brown sesame seeds, rich in healthy fats, protein, and antioxidants.'
     },
     {
@@ -62,7 +62,7 @@ const products = [
             { label: 'Retail Pack', price: 2500 },
             { label: 'Wholesale (Bulk)', price: 2250 }
         ],
-        image: './public/TAMBA.png',
+        image: './assets/TAMBA.png',
         description: 'Nutritious Tamba grains carefully processed to preserve natural taste and health benefits.'
     },
     {
@@ -73,7 +73,7 @@ const products = [
             { label: 'Retail Bottle', price: 1500 },
             { label: 'Wholesale (Bulk)', price: 1300 }
         ],
-        image: './public/kunu.png',
+        image: './assets/kunu.png',
         description: 'Refreshing and nourishing Kunu drink sweetened naturally with dates.'
     },
     {
@@ -84,7 +84,7 @@ const products = [
             { label: 'Retail Bottle', price: 1200 },
             { label: 'Wholesale (Bulk)', price: 1000 }
         ],
-        image: './public/kunu.png',
+        image: './assets/kunu.png',
         description: 'Refreshing and nourishing Kunu drink perfectly sweetened with sugar.'
     }
 ];
