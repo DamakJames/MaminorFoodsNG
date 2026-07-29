@@ -18,7 +18,7 @@ const products = [
             { label: 'Retail Pack', price: 3500 },
             { label: 'Wholesale (Bulk)', price: 3150 }
         ],
-        image: './public/quick%20cook%20mix%20acha.png',
+        image: './public/quick_cook_mix_acha.png',
         description: 'Maminor Acha Quick Cook Mix. A natural gluten-free meal, rich source of Calcium, Iron, and Protein.'
     },
     {
@@ -40,7 +40,7 @@ const products = [
             { label: 'Retail Pack', price: 4000 },
             { label: 'Wholesale (Bulk)', price: 3600 }
         ],
-        image: './public/specil%20mix.jpeg',
+        image: './public/specil_mix.jpeg',
         description: 'A premium blend of highly nutritious indigenous grains crafted for your everyday vitality.'
     },
     {
