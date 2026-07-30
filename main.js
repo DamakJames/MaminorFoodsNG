@@ -338,6 +338,6 @@ window.addEventListener('load', () => {
     if (preloader) {
         setTimeout(() => {
             preloader.classList.add('hidden');
-        }, 150); 
+        }, 1500); 
     }
 });

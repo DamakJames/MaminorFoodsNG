@@ -272,7 +272,7 @@ body { font-family: var(--font-primary); background-color: var(--color-beige-lig
     justify-content: center;
     align-items: center;
     z-index: 99999;
-    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
 }
 .preloader.hidden {
     opacity: 0;
